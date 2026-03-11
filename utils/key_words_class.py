@@ -7,4 +7,8 @@ class KeyWords:
         self.valueerror = "Input data is invalid\n"
         self.indexerror = "Not enough data\n"
 
+        self.square = "square"
+        self.rectangle = "rectangle"
+        self.circle = "circle"
+
 key_words = KeyWords()
