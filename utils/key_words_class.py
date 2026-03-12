@@ -11,4 +11,5 @@ class KeyWords:
         self.rectangle = "rectangle"
         self.circle = "circle"
 
+
 key_words = KeyWords()

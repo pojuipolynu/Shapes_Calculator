@@ -25,20 +25,18 @@ def input_separator(user_input: str) -> dict:
 def shape_clasificator(user_input: str) -> str:
     calculation_output = ""
     separated_user_input = input_separator(user_input)
+
+    class_dictionary = {
+        "square": Square,
+        "rectangle": Rectangle,
+        "circle": Circle
+    }
     
     try:
-
-        if separated_user_input[key_words.square]:
-            square_object = Square.parse_data(separated_user_input[key_words.square])
-            calculation_output += str(square_object) + "\n"
-
-        if separated_user_input[key_words.rectangle]:
-            rectangle_object = Rectangle.parse_data(separated_user_input[key_words.rectangle])
-            calculation_output += str(rectangle_object) + "\n"
-
-        if separated_user_input[key_words.circle]:
-            circle_object = Circle.parse_data(separated_user_input[key_words.circle])
-            calculation_output += str(circle_object) + "\n"
+        for key in [key_words.square, key_words.rectangle, key_words.circle]:
+            if separated_user_input[key]:
+                shape_object = class_dictionary[key].parse_data(separated_user_input[key])
+                calculation_output += str(shape_object) + "\n"
 
     except (ValueError, TypeError):
         return key_words.valueerror
