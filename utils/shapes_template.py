@@ -14,16 +14,6 @@ class GeometryShape(ABC):
     def __str__(self) -> str:
         return f"{self.__class__.__name__} Perimeter {self.calculate_perimeter()} Area {self.calculate_area()}"
 
-class Square(GeometryShape):
-    def __init__(self, side: float):
-        self.side = side
-
-    def calculate_perimeter(self)-> float:
-        return self.side*4
-    
-    def calculate_area(self)-> float:
-        return self.side*self.side
-    
 class Rectangle(GeometryShape):
     def __init__(self, width: float, length: float):
         self.width = width
@@ -34,6 +24,12 @@ class Rectangle(GeometryShape):
     
     def calculate_area(self)-> float:
         return self.width * self.length
+
+class Square(Rectangle):
+    def __init__(self, side: float):
+        super().__init__(side, side)
+        self.side = side
+    
     
 class Circle(GeometryShape):
     def __init__(self, radius: float):
