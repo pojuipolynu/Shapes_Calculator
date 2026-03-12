@@ -34,13 +34,11 @@ def shape_clasificator(user_input: str) -> str:
 
         if separated_user_input[key_words.rectangle]:
             rectangle_object = Rectangle.parse_data(separated_user_input[key_words.rectangle])
-
             calculation_output += str(rectangle_object) + "\n"
 
         if separated_user_input[key_words.circle]:
-            radius_index = separated_user_input[key_words.circle].index(key_words.radius) + 1
-
-            calculation_output += str(Circle(float(separated_user_input[key_words.circle][radius_index]))) + "\n"
+            circle_object = Circle.parse_data(separated_user_input[key_words.circle])
+            calculation_output += str(circle_object) + "\n"
 
     except (ValueError, TypeError):
         return key_words.valueerror

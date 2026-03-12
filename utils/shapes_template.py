@@ -10,7 +10,6 @@ class GeometryShape(ABC):
     def calculate_perimeter(self) -> float:
         pass
 
-
     def __str__(self) -> str:
         return f"{self.__class__.__name__} Perimeter {self.calculate_perimeter()} Area {self.calculate_area()}"
 
@@ -65,3 +64,8 @@ class Circle(GeometryShape):
     
     def calculate_area(self)-> float:
         return self.radius*self.radius*round(math.pi, 2)
+    
+    @classmethod
+    def parse_data(cls, user_data: list):
+        radius_index = user_data.index("radius") + 1
+        return cls(float(user_data[radius_index]))
