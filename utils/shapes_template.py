@@ -29,6 +29,11 @@ class Square(Rectangle):
     def __init__(self, side: float):
         super().__init__(side, side)
         self.side = side
+
+    @classmethod
+    def parse_data(cls, user_data: list):
+        side_index = user_data.index("side") + 1
+        return cls(float(user_data[side_index]))
     
     
 class Circle(GeometryShape):

@@ -34,8 +34,8 @@ def shape_clasificator(user_input: str) -> str:
     try:
 
         if separated_user_input[key_words.square]:
-            side_index = separated_user_input[key_words.square].index(key_words.side) + 1
-            calculation_output += str(Square(float(separated_user_input[key_words.square][side_index]))) + "\n"
+            square_object = Square.parse_data(separated_user_input[key_words.square])
+            calculation_output += str(square_object) + "\n"
 
         if separated_user_input[key_words.rectangle]:
             topright_index = separated_user_input[key_words.rectangle].index(key_words.topright)
